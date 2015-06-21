@@ -28,30 +28,6 @@ brew_apps=(
 
 cask_apps=(
   dropbox
-  slack
-  qlmarkdown
-  spotify
-  flash
-  quicklook-json
-  skype
-  transmission
-  sourcetree
-  evernote
-  crashlytics
-  colorpicker-hex
-  colorpicker-developer
-  colorpicker-skalacolor
-  sqlite-professional
-  testflight
-  vlc
-  onepassword
-)
-
-store_apps=(
-  macappstore://itunes.apple.com/app/id409789998?mt=12 # twitter
-  macappstore://itunes.apple.com/app/id420212497?mt=12 # byword
-  macappstore://itunes.apple.com/app/id734258109?mt=12 # watchdog
-  macappstore://itunes.apple.com/app/id847496013?mt=12 # deckset
 )
 
 # colors
@@ -315,10 +291,6 @@ perform_configuration() {
     sudo pmset -a standbydelay 14400
   pfinish
   
-  printf "Increasing sound quality for Bluetooth headphones/headsets ... "
-    defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
-  pfinish
-  
   printf "Setting a blazingly fast keyboard repeat rate ... "
     defaults write NSGlobalDomain KeyRepeat -int 0
   pfinish
@@ -389,10 +361,6 @@ perform_configuration() {
   printf "Privacy: Don’t send search queries to Apple ... "
     defaults write com.apple.Safari UniversalSearchEnabled -bool false
     defaults write com.apple.Safari SuppressSearchSuggestions -bool true
-  pfinish
-  
-  printf "Hiding Safari's bookmarks bar by default ... "
-    defaults write com.apple.Safari ShowFavoritesBar -bool false
   pfinish
   
   printf "Enabling Safari's debug menu ... "
